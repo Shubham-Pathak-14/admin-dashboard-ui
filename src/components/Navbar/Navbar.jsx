@@ -171,7 +171,7 @@ export default function Navbar() {
             alt="Brand Logo"
             style={{
               width: "90px",
-              height: "50px",
+              height: "60px",
             }}
           />
           {/* <IconButton
