@@ -18,6 +18,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { FaRegBell } from "react-icons/fa";
 import AvatarImg from "../../Assets/tomcruise_avatar.webp";
+import BrandLogo from "../../Assets/2.png";
 
 import Avatar from "@mui/material/Avatar";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -25,7 +26,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: "292B30",
+  backgroundColor: "#4f525a",
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
@@ -56,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
+    color: "white",
     [theme.breakpoints.up("md")]: {
       width: "20ch",
     },
@@ -162,8 +164,16 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ bgcolor: "#1F2029" }}>
+      <AppBar position="static" sx={{ bgcolor: "#252528" }}>
         <Toolbar>
+          <img
+            src={BrandLogo}
+            alt="Brand Logo"
+            style={{
+              width: "90px",
+              height: "50px",
+            }}
+          />
           {/* <IconButton
             size="large"
             edge="start"
@@ -173,15 +183,23 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
-          </Typography>
-          <Search>
+            <img
+              src={BrandLogo}
+              alt="Brand Logo"
+              style={{
+                width: "90px",
+                height: "50px",
+                marginTop: "10px",
+              }}
+            />
+          </Typography> */}
+          <Search style={{ width: "300px" }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -224,6 +242,18 @@ export default function Navbar() {
                 <Avatar sx={{ bgcolor: "#44464C" }}>
                   <FaRegBell />
                 </Avatar>
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    width: 10,
+                    height: 10,
+                    backgroundColor: "#B25DB7",
+                    borderRadius: "50%",
+                    transform: "translate(-80%, 105%)",
+                  }}
+                />
               </Badge>
             </IconButton>
 
