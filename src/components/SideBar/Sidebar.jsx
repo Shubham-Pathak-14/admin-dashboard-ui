@@ -14,6 +14,7 @@ const SidebarContainer = styled(Box)`
   background-color: #252528;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
 
   @media (max-width: 768px) {
