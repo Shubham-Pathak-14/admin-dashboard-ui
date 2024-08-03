@@ -166,14 +166,6 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ bgcolor: "#252528" }}>
         <Toolbar>
-          <img
-            src={BrandLogo}
-            alt="Brand Logo"
-            style={{
-              width: "90px",
-              height: "60px",
-            }}
-          />
           {/* <IconButton
             size="large"
             edge="start"
@@ -183,7 +175,7 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton> */}
-          {/* <Typography
+          <Typography
             variant="h6"
             noWrap
             component="div"
@@ -193,12 +185,12 @@ export default function Navbar() {
               src={BrandLogo}
               alt="Brand Logo"
               style={{
-                width: "90px",
-                height: "50px",
-                marginTop: "10px",
+                width: "80px",
+                height: "60px",
+                marginTop: "5px",
               }}
             />
-          </Typography> */}
+          </Typography>
           <Search style={{ width: "300px" }}>
             <SearchIconWrapper>
               <SearchIcon />
