@@ -1,19 +1,11 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-  CircularProgress,
-} from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import TrendingUpIcon from "@mui/icons-material/TrendingUpOutlined";
-import CanvasJSReact from "@canvasjs/react-charts";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 Chart.register(ArcElement, Tooltip, Legend);
-const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const NetProfitCard = () => {
   const netProfit = 6759.25;
@@ -28,17 +20,11 @@ const NetProfitCard = () => {
         borderRadius: 7,
       },
     ],
-    subtitles: [
-      {
-        text: "70% Positive",
-        verticalAlign: "center",
-        fontSize: 24,
-        dockInsidePlotArea: true,
-      },
-    ],
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     cutout: "75%",
     plugins: {
       legend: {
@@ -47,27 +33,11 @@ const NetProfitCard = () => {
       tooltip: {
         enabled: false,
       },
-      doughnutlabel: {
-        labels: [
-          {
-            text: `${completionPercentage}%`,
-            font: {
-              size: "12",
-            },
-            color: "#fff",
-          },
-        ],
-      },
     },
   };
 
   return (
-    <Box
-      p={2}
-      sx={{
-        height: "230px",
-      }}
-    >
+    <Box p={2} sx={{ height: "100%" }}>
       <Card
         sx={{
           backgroundColor: "#1e1e2d",
@@ -75,16 +45,18 @@ const NetProfitCard = () => {
           flex: 1,
           borderRadius: "16px",
           textAlign: "left",
+          height: "100%",
         }}
       >
         <CardContent
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", md: "center" },
           }}
         >
-          <Box mb={2}>
+          <Box mb={2} sx={{ flexGrow: 1 }}>
             <AccountBalanceWalletIcon
               sx={{ color: "#4caf50", fontSize: 40, fontFamily: "Poppins" }}
             />
@@ -114,18 +86,18 @@ const NetProfitCard = () => {
           </Box>
           <Box
             sx={{
-              width: "300px",
-              height: "155px",
+              width: { xs: "100%", md: "200px" },
+              height: { xs: "200px", md: "155px" },
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               position: "relative",
               fontFamily: "Poppins",
-              marginTop: "16px",
+              mt: { xs: 2, md: 0 },
             }}
           >
-            {/* <CanvasJSChart options={options1} /> */}
+            <Doughnut data={data} options={options} />
             <Typography
               variant="h4"
               sx={{
@@ -134,32 +106,34 @@ const NetProfitCard = () => {
                 position: "absolute",
                 top: "20px",
                 fontFamily: "Poppins",
+                fontSize: { xs: "20px", md: "24px" },
               }}
             >
               70%
             </Typography>
             <Typography
-              variant="p"
+              variant="body2"
               sx={{
                 margin: "5px",
                 textAlign: "center",
                 position: "absolute",
                 top: "55px",
                 fontFamily: "Poppins",
+                fontSize: { xs: "12px", md: "16px" },
               }}
             >
               Goal Completed
             </Typography>
-            <Doughnut data={data} options={options} />
             <Typography
-              variant="p"
+              variant="body2"
               sx={{
                 margin: "5px",
                 textAlign: "center",
                 fontFamily: "Poppins",
+                fontSize: { xs: "10px", md: "12px" },
               }}
             >
-              *The values given has been approximated
+              *The values given have been approximated
             </Typography>
           </Box>
         </CardContent>
