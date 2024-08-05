@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import HomeIcon from "@mui/icons-material/Home";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
@@ -6,11 +6,25 @@ import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurned
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import StartIcon from "@mui/icons-material/Start";
+// import Box from "@mui/material";
+
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Box,
+  IconButton,
+  Drawer,
+  useMediaQuery,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const SidebarContainer = styled(Box)`
   width: 70px;
-  height: 950px;
   background-color: #252528;
   display: flex;
   flex-direction: column;
@@ -18,16 +32,11 @@ const SidebarContainer = styled(Box)`
   padding: 20px;
 
   @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    padding: 10px;
+    width: 50px;
   }
 
   @media (max-width: 350px) {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-    display: flex;
+    width: 30px;
   }
 `;
 
@@ -47,50 +56,106 @@ const SidebarItem = styled(ListItem)`
 const IconColor = { color: "#ffffffbd" };
 
 const Sidebar = () => {
-  return (
-    <SidebarContainer>
-      <List>
-        <SidebarItem>
-          <ListItemIcon>
-            <HomeIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-        <SidebarItem>
-          <ListItemIcon>
-            <AssessmentOutlinedIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-        <SidebarItem>
-          <ListItemIcon>
-            <AssignmentTurnedInOutlinedIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-        <SidebarItem>
-          <ListItemIcon>
-            <AccountBalanceWalletOutlinedIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-        <SidebarItem>
-          <ListItemIcon>
-            <SummarizeOutlinedIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-      </List>
+  const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-      <List>
-        <SidebarItem>
-          <ListItemIcon>
-            <LogoutOutlinedIcon sx={IconColor} />
-          </ListItemIcon>
-          <ListItemText />
-        </SidebarItem>
-      </List>
-    </SidebarContainer>
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  const sidebarContent = (
+    <List>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box>
+          <SidebarItem>
+            <ListItemIcon>
+              <HomeIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+          <SidebarItem>
+            <ListItemIcon>
+              <AssessmentOutlinedIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+          <SidebarItem>
+            <ListItemIcon>
+              <AssignmentTurnedInOutlinedIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+          <SidebarItem>
+            <ListItemIcon>
+              <AccountBalanceWalletOutlinedIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+          <SidebarItem>
+            <ListItemIcon>
+              <SummarizeOutlinedIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+        </Box>
+
+        <Box>
+          <SidebarItem>
+            <ListItemIcon>
+              <LogoutOutlinedIcon sx={IconColor} />
+            </ListItemIcon>
+            {!isMobile && <ListItemText />}
+          </SidebarItem>
+        </Box>
+      </Box>
+    </List>
+  );
+
+  return (
+    <>
+      {isMobile ? (
+        <Drawer
+          anchor="left"
+          open={open}
+          onClose={toggleDrawer}
+          sx={{
+            "& .MuiDrawer-paper": {
+              backgroundColor: "#252528",
+              width: "100px",
+            },
+          }}
+        >
+          <IconButton onClick={toggleDrawer} sx={{ color: "white" }}>
+            <ChevronLeftIcon />
+          </IconButton>
+          {sidebarContent}
+        </Drawer>
+      ) : (
+        <SidebarContainer>{sidebarContent}</SidebarContainer>
+      )}
+
+      {isMobile && (
+        <IconButton
+          onClick={toggleDrawer}
+          sx={{
+            position: "fixed",
+            top: 70,
+            left: 0,
+            color: "white",
+            zIndex: 1, // Ensure the button is above other elements
+          }}
+        >
+          <StartIcon />
+        </IconButton>
+      )}
+    </>
   );
 };
 

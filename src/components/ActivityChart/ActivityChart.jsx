@@ -16,31 +16,6 @@ const ActivityChart = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          width: "500px",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <h3>Activity</h3>
-        <Box sx={{ minWidth: 120 }}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Weekly</MenuItem>
-              <MenuItem value={20}>Monthly</MenuItem>
-              <MenuItem value={30}>Yearly</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-      </Box>
       <BarChart
         xAxis={[
           {
@@ -65,13 +40,15 @@ const ActivityChart = () => {
           { data: [4, 3, 5, 7, 2, 6, 2, 3, 10, 11, 6], color: "#B25DB7" },
           { data: [2, 5, 9, 2, 4, 8, 7, 1, 5, 4, 9], color: "#B25DB7" },
         ]}
-        width={650}
-        height={300}
-        borderRadius={50}
+        width={1300}
+        height={400}
+        margin={1}
+        borderRadius={100}
         sx={{
           "& .MuiChart-root": {
             backgroundColor: "#333",
             color: "#fff",
+            marginLeft: "20px",
           },
           "& .MuiChart-axis": {
             color: "#fff",
@@ -79,8 +56,8 @@ const ActivityChart = () => {
           "& .MuiChart-bar": {
             marginBottom: "10px",
           },
-          //   bgcolor: "#252528",
-          //   color: "#FFF",
+          bgcolor: "#1F1E2D",
+          borderRadius: "24px",
         }}
       />
     </>

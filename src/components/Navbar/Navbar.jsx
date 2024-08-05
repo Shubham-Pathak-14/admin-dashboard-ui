@@ -1,6 +1,6 @@
 import * as React from "react";
+import "./Navbar.css";
 import { styled, alpha } from "@mui/material/styles";
-import { green, pink } from "@mui/material/colors";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -19,7 +19,6 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { FaRegBell } from "react-icons/fa";
 import AvatarImg from "../../Assets/tomcruise_avatar.webp";
 import BrandLogo from "../../Assets/2.png";
-
 import Avatar from "@mui/material/Avatar";
 import { IoSettingsOutline } from "react-icons/io5";
 
@@ -31,11 +30,11 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
+  marginLeft: theme.spacing(2),
+  width: "300px",
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
     width: "auto",
+    marginLeft: theme.spacing(3),
   },
 }));
 
@@ -53,13 +52,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
     color: "white",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       width: "20ch",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "15ch",
     },
   },
 }));
@@ -129,7 +130,7 @@ export default function Navbar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={0} color="error">
             <MailOutlineIcon />
           </Badge>
         </IconButton>
@@ -141,8 +142,20 @@ export default function Navbar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge badgeContent={0} color="error">
+            <IoSettingsOutline />
+          </Badge>
+        </IconButton>
+        <p>Settings</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={0} color="error">
+            <FaRegBell />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -155,7 +168,7 @@ export default function Navbar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <Avatar src={AvatarImg}></Avatar>
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -166,20 +179,11 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ bgcolor: "#252528" }}>
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{ display: { xs: "block", sm: "block" } }}
           >
             <img
               src={BrandLogo}
@@ -189,9 +193,14 @@ export default function Navbar() {
                 height: "60px",
                 marginTop: "5px",
               }}
+              sx={{
+                width: { xs: "40px", sm: "80px" },
+                height: { xs: "20px", sm: "40px" },
+              }}
             />
           </Typography>
-          <Search style={{ width: "300px" }}>
+
+          <Search sx={{ width: "500px" }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -200,6 +209,7 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton

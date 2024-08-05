@@ -1,0 +1,35 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px; /* Adjust based on Navbar height */
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

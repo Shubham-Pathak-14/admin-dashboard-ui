@@ -1,4 +1,12 @@
 .container {
-  width: 100%;
+  width: 100dvw;
+  /* height: 100dvh; */
   background-color: black;
+  padding: 20px;
+}
+
+.heading {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin-left: 32px;
 }
