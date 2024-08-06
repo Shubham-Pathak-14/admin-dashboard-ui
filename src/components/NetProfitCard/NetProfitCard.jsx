@@ -37,7 +37,7 @@ const NetProfitCard = () => {
   };
 
   return (
-    <Box p={2} sx={{ height: "100%" }}>
+    <Box p={2} sx={{ height: "225px" }}>
       <Card
         sx={{
           backgroundColor: "#1e1e2d",
@@ -69,6 +69,7 @@ const NetProfitCard = () => {
                 margin: "8px 0px",
                 fontWeight: "bold",
                 fontFamily: "Poppins",
+                fontSize: "2rem",
               }}
             >
               ${netProfit.toFixed(2)}

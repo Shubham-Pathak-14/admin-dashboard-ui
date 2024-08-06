@@ -27,35 +27,36 @@ function Dashboard() {
       <h2 className={styles.heading}>Dashboard</h2>
 
       <Grid container spacing={0}>
-        <Grid xs={12} sm={12} md={12} lg={8}>
+        <Grid xs={12} sm={12} md={12} lg={7.5}>
           <Item>
             <CardStack />
           </Item>
           {/* <CardStack /> */}
         </Grid>
-        <Grid xs={12} sm={12} md={12} lg={4}>
+        <Grid xs={12} sm={12} md={12} lg={4.5}>
           <Item>
             <NetProfitCard />
           </Item>
         </Grid>
 
-        <Grid xs={12} sm={12} md={12} lg={8}>
-          <Item>{/* <CardStack /> */}</Item>
-          {/* <CardStack /> */}
+        <Grid xs={12} sm={12} md={12} lg={7.5}>
+          <Item>
+            <ActivityChart />
+          </Item>
         </Grid>
-        <Grid xs={12} sm={12} md={12} lg={4}>
+        <Grid xs={12} sm={12} md={12} lg={4.5}>
           <Item>
             <GoalsPopularDishesMenus />
           </Item>
         </Grid>
 
-        <Grid xs={12} sm={12} md={12} lg={8}>
+        <Grid xs={12} sm={12} md={12} lg={7.5}>
           <Item>
             {/* <ActivityChart /> */}
             <RecentOrders />
           </Item>
         </Grid>
-        <Grid xs={12} sm={12} md={12} lg={4}>
+        <Grid xs={12} sm={12} md={12} lg={4.5}>
           <Item>
             <CustomerFeedback />
           </Item>

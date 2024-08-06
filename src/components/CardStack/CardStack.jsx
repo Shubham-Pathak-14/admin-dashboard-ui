@@ -6,31 +6,32 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import "./CardStack.css";
 
 const data = [
   {
     title: "Total Orders",
     value: 75,
     change: 3,
-    icon: <ShoppingCartIcon sx={{ color: "#4caf50", fontSize: 60 }} />,
+    icon: <ShoppingCartIcon sx={{ color: "#4caf50", fontSize: 50 }} />,
   },
   {
     title: "Total Delivered",
     value: 70,
     change: -3,
-    icon: <LocalShippingIcon sx={{ color: "#2196f3", fontSize: 60 }} />,
+    icon: <LocalShippingIcon sx={{ color: "#2196f3", fontSize: 50 }} />,
   },
   {
     title: "Total Cancelled",
     value: 5,
     change: 3,
-    icon: <CancelIcon sx={{ color: "#f44336", fontSize: 60 }} />,
+    icon: <CancelIcon sx={{ color: "#f44336", fontSize: 50 }} />,
   },
   {
     title: "Total Revenue",
     value: "$12k",
     change: -3,
-    icon: <AttachMoneyIcon sx={{ color: "#ffeb3b", fontSize: 60 }} />,
+    icon: <AttachMoneyIcon sx={{ color: "#ffeb3b", fontSize: 50 }} />,
   },
 ];
 
