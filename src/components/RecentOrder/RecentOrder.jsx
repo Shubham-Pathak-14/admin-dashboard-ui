@@ -82,6 +82,7 @@ const RecentOrders = () => {
         color: "text.primary",
         m: 2,
         borderRadius: "20px",
+        height: "573.5px",
       }}
     >
       <CardContent>
@@ -93,6 +94,7 @@ const RecentOrders = () => {
             fontFamily: "Poppins",
             color: "white",
             fontWeight: "bold",
+            letterSpacing: 1.5,
           }}
         >
           Recent Orders
@@ -103,36 +105,41 @@ const RecentOrders = () => {
               <TableRow>
                 <TableCell
                   sx={{
-                    fontSize: "1.2rem",
+                    fontSize: "1rem",
                     color: "white",
                     fontFamily: "Poppins",
+                    fontWeight: "semi-bold",
+                    letterSpacing: 1,
                   }}
                 >
                   Customer
                 </TableCell>
                 <TableCell
                   sx={{
-                    fontSize: "1.2rem",
+                    fontSize: "1rem",
                     color: "white",
                     fontFamily: "Poppins",
+                    letterSpacing: 1,
                   }}
                 >
                   Order No.
                 </TableCell>
                 <TableCell
                   sx={{
-                    fontSize: "1.2rem",
+                    fontSize: "1rem",
                     color: "white",
                     fontFamily: "Poppins",
+                    letterSpacing: 1,
                   }}
                 >
                   Amount
                 </TableCell>
                 <TableCell
                   sx={{
-                    fontSize: "1.2rem",
+                    fontSize: "1rem",
                     color: "white",
                     fontFamily: "Poppins",
+                    letterSpacing: 1,
                   }}
                 >
                   Status
@@ -146,9 +153,10 @@ const RecentOrders = () => {
                     component="th"
                     scope="row"
                     sx={{
-                      fontSize: "1.3rem",
+                      fontSize: "1rem",
                       color: "white",
                       fontFamily: "Poppins",
+                      letterSpacing: 0.8,
                     }}
                   >
                     <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -162,18 +170,20 @@ const RecentOrders = () => {
                   </TableCell>
                   <TableCell
                     sx={{
-                      fontSize: "1.2rem",
+                      fontSize: "1rem",
                       color: "white",
                       fontFamily: "Poppins",
+                      letterSpacing: 1,
                     }}
                   >
                     {order.orderNo}
                   </TableCell>
                   <TableCell
                     sx={{
-                      fontSize: "1.2rem",
+                      fontSize: "1rem",
                       color: "white",
                       fontFamily: "Poppins",
+                      letterSpacing: 0.8,
                     }}
                   >
                     {order.amount}
@@ -184,8 +194,10 @@ const RecentOrders = () => {
                       sx={{
                         bgcolor: getStatusColor(order.status),
                         color: "white",
-                        fontSize: "1rem",
+                        fontSize: ".9rem",
                         width: "100px",
+                        letterSpacing: 0.8,
+                        height: "25px",
                       }}
                     />
                   </TableCell>

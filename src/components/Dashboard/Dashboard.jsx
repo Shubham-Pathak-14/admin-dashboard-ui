@@ -43,6 +43,7 @@ function Dashboard() {
           <Item>
             <ActivityChart />
           </Item>
+          {/* <CardStack /> */}
         </Grid>
         <Grid xs={12} sm={12} md={12} lg={4.5}>
           <Item>
@@ -52,7 +53,6 @@ function Dashboard() {
 
         <Grid xs={12} sm={12} md={12} lg={7.5}>
           <Item>
-            {/* <ActivityChart /> */}
             <RecentOrders />
           </Item>
         </Grid>

@@ -24,7 +24,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 
 const SidebarContainer = styled(Box)`
-  width: 70px;
+  width: 50px;
   background-color: #252528;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@ const Sidebar = () => {
           justifyContent: "space-between",
         }}
       >
-        <Box>
+        <Box mt={"-25px"}>
           <SidebarItem>
             <ListItemIcon>
               <HomeIcon sx={IconColor} />
@@ -106,7 +106,7 @@ const Sidebar = () => {
           </SidebarItem>
         </Box>
 
-        <Box>
+        <Box mt={"260px"}>
           <SidebarItem>
             <ListItemIcon>
               <LogoutOutlinedIcon sx={IconColor} />
@@ -128,7 +128,7 @@ const Sidebar = () => {
           sx={{
             "& .MuiDrawer-paper": {
               backgroundColor: "#252528",
-              width: "100px",
+              width: "60px",
             },
           }}
         >
@@ -149,7 +149,7 @@ const Sidebar = () => {
             top: 70,
             left: 0,
             color: "white",
-            zIndex: 1, // Ensure the button is above other elements
+            zIndex: 1,
           }}
         >
           <StartIcon />

@@ -6,32 +6,32 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
-import "./CardStack.css";
+import { BoltRounded } from "@mui/icons-material";
 
 const data = [
   {
     title: "Total Orders",
     value: 75,
     change: 3,
-    icon: <ShoppingCartIcon sx={{ color: "#4caf50", fontSize: 50 }} />,
+    icon: <ShoppingCartIcon sx={{ color: "#4caf50", fontSize: 40 }} />,
   },
   {
     title: "Total Delivered",
     value: 70,
     change: -3,
-    icon: <LocalShippingIcon sx={{ color: "#2196f3", fontSize: 50 }} />,
+    icon: <LocalShippingIcon sx={{ color: "#2196f3", fontSize: 40 }} />,
   },
   {
     title: "Total Cancelled",
-    value: 5,
+    value: "05",
     change: 3,
-    icon: <CancelIcon sx={{ color: "#f44336", fontSize: 50 }} />,
+    icon: <CancelIcon sx={{ color: "#f44336", fontSize: 40 }} />,
   },
   {
     title: "Total Revenue",
     value: "$12k",
     change: -3,
-    icon: <AttachMoneyIcon sx={{ color: "#ffeb3b", fontSize: 50 }} />,
+    icon: <AttachMoneyIcon sx={{ color: "#ffeb3b", fontSize: 40 }} />,
   },
 ];
 
@@ -55,7 +55,14 @@ const DashboardCards = () => {
                 <Box mb={2} sx={{ textAlign: "left" }}>
                   {item.icon}
                   <Box>
-                    <Typography variant="h6" sx={{ fontFamily: "Poppins" }}>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontFamily: "Poppins",
+                        letterSpacing: 1,
+                        fontWeight: 600,
+                      }}
+                    >
                       {item.title}
                     </Typography>
                   </Box>
@@ -67,8 +74,8 @@ const DashboardCards = () => {
                   justifyContent="space-between"
                 >
                   <Typography
-                    variant="h4"
-                    sx={{ margin: "20px 0", fontFamily: "Poppins" }}
+                    variant="h5"
+                    sx={{ fontFamily: "Poppins", fontSize: 30 }}
                   >
                     {item.value}
                   </Typography>
@@ -79,12 +86,12 @@ const DashboardCards = () => {
                       <TrendingDownIcon color="error" />
                     )}
                     <Typography
-                      variant="body2"
+                      variant="body1"
                       color={item.change > 0 ? "success.main" : "error.main"}
                       sx={{
                         marginLeft: 1,
                         fontFamily: "Poppins",
-                        fontSize: "20px",
+                        fontSize: "15px",
                       }}
                     >
                       {item.change}%

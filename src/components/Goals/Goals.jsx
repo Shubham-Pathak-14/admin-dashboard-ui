@@ -35,15 +35,27 @@ const GoalsPopularDishesMenus = () => {
         color: "text.primary",
         m: 2,
         borderRadius: "20px",
+        height: "340px",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <CardContent>
         <List>
           {items.map((item, index) => (
             <React.Fragment key={index}>
-              <ListItem button>
+              <ListItem button sx={{ marginBottom: "3rem" }}>
                 <ListItemIcon sx={{ color: "white" }}>
-                  <Avatar sx={{ bgcolor: item.color }}>{item.icon}</Avatar>
+                  <Avatar
+                    sx={{
+                      bgcolor: item.color,
+                      width: "3rem",
+                      height: "3rem",
+                      mr: "1rem",
+                    }}
+                  >
+                    {item.icon}
+                  </Avatar>
                 </ListItemIcon>
                 <ListItemText
                   primary={
@@ -56,14 +68,16 @@ const GoalsPopularDishesMenus = () => {
                   }
                 />
                 <ListItemIcon sx={{ color: "white" }}>
-                  <Avatar sx={{ bgcolor: "##90a4ae" }}>
+                  <Avatar
+                    sx={{ bgcolor: "##90a4ae", width: "2rem", height: "2rem" }}
+                  >
                     <ChevronRightIcon />
                   </Avatar>
                 </ListItemIcon>
               </ListItem>
-              {index < items.length - 1 && (
+              {/* {index < items.length - 1 && (
                 <Divider sx={{ bgcolor: "rgba(255, 255, 255, 0.2)" }} />
-              )}
+              )} */}
             </React.Fragment>
           ))}
         </List>

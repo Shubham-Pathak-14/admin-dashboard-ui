@@ -7,6 +7,7 @@ import {
   Avatar,
   Grid,
   Rating,
+  Divider,
 } from "@mui/material";
 
 // const feedbacks = [
@@ -96,8 +97,8 @@ const CustomerFeedback = () => {
         m: 2,
         borderRadius: "20px",
         fontFamily: "Poppins",
-        height: "578.5px",
-        overflowY: "scroll",
+        height: "573.5px",
+        overflowX: "hidden",
       }}
     >
       <CardContent>
@@ -107,13 +108,37 @@ const CustomerFeedback = () => {
           sx={{
             fontFamily: "Poppins",
             textAlign: "left",
-            marginBottom: "1.75rem",
+            marginBottom: "1rem",
             fontWeight: "bold",
+            letterSpacing: 1,
           }}
         >
           Customer's Feedback
         </Typography>
-        <Box sx={{ overflowY: "scroll" }}>
+        <Box
+          sx={{
+            bgcolor: "#1e1e2d",
+            color: "white",
+            borderRadius: "20px",
+            fontFamily: "Poppins",
+            height: "573px",
+            overflowX: "hidden",
+            overflowY: "auto",
+            "&::-webkit-scrollbar": {
+              width: "5px",
+            },
+            "&::-webkit-scrollbar-track": {
+              background: "#1e1e2d",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              background: "#888",
+              borderRadius: "20px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              background: "#555",
+            },
+          }}
+        >
           <Grid container spacing={2}>
             {feedbacks.map((feedback, index) => (
               <Grid item xs={12} key={index}>
@@ -133,15 +158,19 @@ const CustomerFeedback = () => {
                     <Typography
                       variant="subtitle1"
                       color="white"
-                      sx={{ fontFamily: "Poppins", fontSize: "1.3rem" }}
+                      sx={{ fontFamily: "Poppins", fontSize: "1.1rem" }}
                     >
                       {feedback.customer}
                     </Typography>
-                    <Rating value={feedback.rating} readOnly />
+                    <Rating
+                      value={feedback.rating}
+                      readOnly
+                      sx={{ fontSize: "1.2rem" }}
+                    />
                     <Typography
                       variant="body2"
                       color="white"
-                      sx={{ mt: 1, fontFamily: "Poppins", fontSize: "1.1rem" }}
+                      sx={{ fontFamily: "Poppins", fontSize: ".7rem" }}
                     >
                       {feedback.feedback}
                     </Typography>

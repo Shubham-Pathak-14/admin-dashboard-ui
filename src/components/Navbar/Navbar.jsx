@@ -31,9 +31,10 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: theme.spacing(2),
-  width: "300px",
+  width: "100%",
+  maxWidth: "300px",
+  height: "30px",
   [theme.breakpoints.up("sm")]: {
-    width: "auto",
     marginLeft: theme.spacing(3),
   },
 }));
@@ -50,6 +51,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
+  height: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -179,28 +181,34 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ bgcolor: "#252528" }}>
         <Toolbar>
+          {/* <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2, display: { md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton> */}
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "block", sm: "block" } }}
+            sx={{ display: { xs: "flex", sm: "block" }, alignItems: "center" }}
           >
             <img
               src={BrandLogo}
               alt="Brand Logo"
               style={{
-                width: "80px",
-                height: "60px",
+                width: "35px",
+                height: "35px",
                 marginTop: "5px",
-              }}
-              sx={{
-                width: { xs: "40px", sm: "80px" },
-                height: { xs: "20px", sm: "40px" },
+                marginLeft: "8px",
               }}
             />
           </Typography>
 
-          <Search sx={{ width: "500px" }}>
+          <Search sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -218,7 +226,9 @@ export default function Navbar() {
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <Avatar sx={{ bgcolor: "#44464C" }}>
+                <Avatar
+                  sx={{ bgcolor: "#44464C", width: "2.2rem", height: "2.2rem" }}
+                >
                   <MailOutlineIcon />
                 </Avatar>
               </Badge>
@@ -229,7 +239,9 @@ export default function Navbar() {
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <Avatar sx={{ bgcolor: "#44464C" }}>
+                <Avatar
+                  sx={{ bgcolor: "#44464C", width: "2.2rem", height: "2.2rem" }}
+                >
                   <IoSettingsOutline />
                 </Avatar>
               </Badge>
@@ -241,7 +253,9 @@ export default function Navbar() {
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <Avatar sx={{ bgcolor: "#44464C" }}>
+                <Avatar
+                  sx={{ bgcolor: "#44464C", width: "2.2rem", height: "2.2rem" }}
+                >
                   <FaRegBell />
                 </Avatar>
                 <div

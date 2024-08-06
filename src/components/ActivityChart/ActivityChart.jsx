@@ -28,11 +28,12 @@ const data = [
 ];
 
 const CustomBox = styled(Box)({
+  // marginTop:"50px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   backgroundColor: "#1E1E2D",
-  fontFamily: `"Poppins", sans-serif`,
+  fontFamily: "Poppins",
   borderRadius: "10px",
   padding: "10px 20px",
   width: "100%",
@@ -116,6 +117,7 @@ export default function App() {
           />
         </BarChart>
       </ResponsiveContainer>
+         
     </div>
   );
 }
